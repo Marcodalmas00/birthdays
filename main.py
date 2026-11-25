@@ -1,6 +1,5 @@
 #! /usr/bin/env python3
+from bdpackage.bdmodule import return_birthday
+import sys
 
-from birthdays import return_birthday
-
-return_birthday('Albert Einstein')
-return_birthday('Alan Turing')
+return_birthday(sys.argv[0])
