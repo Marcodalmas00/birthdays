@@ -2,4 +2,5 @@
 from bdpackage.bdmodule import return_birthday
 import sys
 
-return_birthday(sys.argv[0])
+print(sys.argv[1]+" "+sys.argv[2])
+return_birthday(sys.argv[1]+" "+sys.argv[2])
