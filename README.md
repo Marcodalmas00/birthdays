@@ -1,17 +1,23 @@
-## Implementation of a Birthday reminder
+# Birthday lookup
 
+Look up a person's birthday using the data in `birthdays.csv`. The CSV has two columns: `Name` and `Birthday`.
 
-In this repository you can find a file named ```birthday.py``` that contains a small list of birthdays of famous people and a function ```return_birthday()``` that returns the birthday of a person. This function is used in the ```main.py``` file to test if "Albert Einstein" and "Alan Turing" are in the list. If you run the program, executing the main file with: ```python main.py``` it will give you the following result:
+Run the program with both required options:
 
+```bash
+python3 main.py --firstname Albert --lastname Einstein
 ```
-$ python main.py
+
+Expected output:
+
+```text
 Albert Einstein's birthday is 03/14/1879.
-Sadly, we don't have Alan Turing's birthday.
 ```
 
+Use `python3 main.py --help` to see the available first and last names. The names are read from the CSV when the program runs. Each option is checked separately, so a valid but unmatched combination such as `Albert Franklin` produces the “Sadly, ...” message.
 
-## Credits:
+`bdpackage/write_dict.py` contains the original hard-coded dictionary and was run once to create `birthdays.csv`. The lookup code reads the CSV; it does not import the dictionary from that script. To change the available birthdays, edit `birthdays.csv`.
 
-Code is taken from the nice [practice Python](https://www.practicepython.org/) website from Michele Pratusevich and is released with a [CC-BY](https://www.practicepython.org/about/) license.
+## Credits
 
-This is an edit to README.
+The original birthday example comes from [Practice Python](https://www.practicepython.org/) by Michele Pratusevich and is released under [CC BY](https://www.practicepython.org/about/).

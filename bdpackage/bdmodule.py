@@ -1,20 +1,33 @@
-birthdays = {
-    'Albert Einstein': '03/14/1879',
-    'Benjamin Franklin': '01/17/1706',
-    'Ada Lovelace': '12/10/1815',
-    'Donald Trump': '06/14/1946',
-    'Rowan Atkinson': '01/6/1955'}
+"""Read birthday data from CSV and look up people by name."""
+
+import csv
+from pathlib import Path
+
+
+CSV_PATH = Path(__file__).resolve().parent.parent / "birthdays.csv"
+
+
+def get_birthdays():
+    """Map full names to birthdays using the CSV file."""
+    with CSV_PATH.open(newline="", encoding="utf-8") as csv_file:
+        reader = csv.DictReader(csv_file)
+        return {row["Name"]: row["Birthday"] for row in reader}
+
 
 def print_birthdays():
-    '''Comment the function.'''
-    print('Welcome to the birthday dictionary. We know the birthdays of these people:')
-    for name in birthdays:
+    """Print the names whose birthdays are available."""
+    print(
+        "Welcome to the birthday dictionary. "
+        "We know the birthdays of these people:"
+    )
+    for name in get_birthdays():
         print(name)
 
-def return_birthday(name):
-    '''Comment the function.'''
-    if name in birthdays:
-        print('{}\'s birthday is {}.'.format(name, birthdays[name]))
-    else:
-        print('Sadly, we don\'t have {}\'s birthday.'.format(name))
 
+def return_birthday(name):
+    """Print the birthday of a person, or say when it is unknown."""
+    birthdays = get_birthdays()
+    if name in birthdays:
+        print(f"{name}'s birthday is {birthdays[name]}.")
+    else:
+        print(f"Sadly, we don't have {name}'s birthday.")
