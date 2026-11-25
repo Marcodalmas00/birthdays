@@ -3,10 +3,11 @@
 
 import argparse
 
-from bdpackage.bdmodule import get_birthdays, return_birthday
+from bdpackage.bdmodule import get_birthdays, return_birthday, print_birthdays
 
 
 def main():
+    # print(print_birthdays())
     """Parse a name and print its birthday when available."""
     birthdays = get_birthdays()
     firstnames = list(
